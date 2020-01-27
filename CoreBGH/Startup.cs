@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CoreBGH.Pages.Modul03;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,7 +27,7 @@ namespace CoreBGH
             
             services.AddRazorPages();
            services.AddControllersWithViews().AddRazorRuntimeCompilation();
-            
+            services.AddSingleton<DI1>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
