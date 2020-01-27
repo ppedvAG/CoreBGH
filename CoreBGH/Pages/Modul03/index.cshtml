@@ -5,4 +5,21 @@
 }
 
 <h1>index</h1>
-@Model.MyProperty
+@(Model.MyProperty),dsfsdfdsf
+<div style='@(Model.MyProperty==7?"background-color:yellow":"")'>demo</div>
+
+@if (Model.MyProperty==7)
+{
+    <div style='background-color:green'>demo</div>
+
+}
+else
+{
+    <div style='background-color:blue'>demo</div>
+
+}
+@for (int i = 0; i < 7; i++)
+{
+    @DateTime.Now.AddDays(i).ToString("dddd");<br />
+}
+<hr />
