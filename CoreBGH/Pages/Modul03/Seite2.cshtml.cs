@@ -9,7 +9,7 @@ namespace CoreBGH.Pages.Modul03
 {
     public class Seite2Model : PageModel
     {
-        public void OnGet(DI1 di)
+        public void OnGet([FromServices] DI1 di)
         {
             di.BenutzerCounter++;
         }
