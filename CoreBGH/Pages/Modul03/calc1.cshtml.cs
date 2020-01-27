@@ -12,7 +12,11 @@ namespace CoreBGH.Pages.Modul03
         public int Ergebnis { get; set; }
         public void OnGet()
         {
-
+            Ergebnis = 0;
+        }
+        public void OnGetHannes()
+        {
+            Ergebnis = 42;
         }
         public void OnPost()
         {
