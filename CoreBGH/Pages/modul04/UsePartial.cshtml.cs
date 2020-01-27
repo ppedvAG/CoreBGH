@@ -9,6 +9,7 @@ namespace CoreBGH.Pages.modul04
 {
     public class UsePartialModel : PageModel
     {
+        public int MyProperty { get; set; } = 42;
         public void OnGet()
         {
 
