@@ -22,7 +22,7 @@ namespace CoreBGH.Pages.modul04
                 Tage[i]= Enum.GetName(typeof(DayOfWeek), i);
         }
             HttpContext.Response.ContentType = "application/vnd.ms-excel";
-            return Partial("_excel");
+            return Partial("_excel",this);
         }
     }
 }
