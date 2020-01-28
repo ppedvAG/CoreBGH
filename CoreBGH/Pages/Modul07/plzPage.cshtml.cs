@@ -15,13 +15,18 @@ namespace CoreBGH.Pages.Modul07
         {
             _plzservice = plzservice;
         }
-        public List<Plz> PLZListe { get; set; } 
+        public List<Plz> PLZListe { get; set; }
         public void OnGet()
         {
             //    var q=from p in  _plzservice.PlzListe
             //          select p 
             PLZListe = _plzservice.PlzListe.Take(10).ToList();
 
+        }
+        public PartialViewResult OnGetNext([FromQuery] int seite)
+        {
+            PLZListe = _plzservice.PlzListe.Skip(seite*10).Take(10).ToList();
+            return Partial("_PlzPage", this);
         }
     }
 }

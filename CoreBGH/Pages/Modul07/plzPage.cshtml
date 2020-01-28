@@ -5,4 +5,33 @@
 }
 
 <h1>plzPage</h1>
+<table id="table1">
+    <tr>
+        <th>PLZ</th>
+        <th>Ort</th>
+    </tr>
+    @*@foreach (var item in Model.PLZListe)
+	{
+		 <tr>
+             <td>@item.zipcode</td>
+             <td>@item.community</td>
+         </tr>
+	}*@
+    <partial name="_PlzPage" />
+</table>
+<a href="#" onclick="lade()" class="btn btn-danger btn-sm">weitere Datensätze</a>
+<script>
+    function lade() {
+        $.ajax(
+            {
+                url: 'plzPage?handler=next&seite=' + seite
+
+            }).done(function (daten) {
+                $('#table1').append(daten);
+                seite++;
+            });
+       
+    }
+    seite = 1;
+</script>
 
