@@ -29,6 +29,7 @@ namespace CoreBGH
            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddSingleton<DI1>();
             services.AddSession(options => options.Cookie.IsEssential = true);
+            services.AddResponseCaching();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +45,7 @@ namespace CoreBGH
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+  app.UseResponseCaching();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -52,7 +53,7 @@ namespace CoreBGH
 
             app.UseAuthorization();
             app.UseSession();
-
+          
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
