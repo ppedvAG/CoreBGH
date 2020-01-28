@@ -52,7 +52,7 @@ namespace CoreBGH
                 app.UseHsts();
             }
             AppDomain.CurrentDomain.SetData("BildVerzeichnis", env.WebRootPath);
-            AppDomain.CurrentDomain.SetData("DatenVerzeichnis", env.ContentRootPath+@"/data/");
+            AppDomain.CurrentDomain.SetData("DatenVerzeichnis", env.ContentRootPath+@"\data\");
             app.UseResponseCaching();
             app.UseHttpsRedirection();
             app.UseStaticFiles();

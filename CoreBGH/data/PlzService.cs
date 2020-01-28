@@ -13,7 +13,7 @@ namespace CoreBGH.data
         public PlzService()
         {
 
-            var pfad = AppDomain.CurrentDomain.GetData("DateVerzeichnis") + "plzat.json";
+            var pfad = AppDomain.CurrentDomain.GetData("DatenVerzeichnis") + "plzat.json";
             var daten = File.ReadAllText(pfad); //möge der Dev ewig in der Hölle schmoren
             var json = JsonSerializer.Deserialize<List<Plz>>(daten);
         }
