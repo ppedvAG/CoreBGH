@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using CoreBGH.Pages.Modul05;
+using Microsoft.EntityFrameworkCore;
+using CoreBGH.data;
+
 namespace CoreBGH
 {
     public class Startup
@@ -30,6 +33,8 @@ namespace CoreBGH
             services.AddSingleton<DI1>();
             services.AddSession(options => options.Cookie.IsEssential = true);
             services.AddResponseCaching();
+            services.AddDbContext<AufgabenContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("MyDB")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +69,7 @@ namespace CoreBGH
             {
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }
