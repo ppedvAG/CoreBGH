@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using CoreBGH.Pages.Modul05;
 namespace CoreBGH
 {
     public class Startup
@@ -51,10 +51,15 @@ namespace CoreBGH
             app.UseStaticFiles();
 
             app.UseRouting();
-           
+          
             app.UseAuthorization();
             app.UseSession();
-          
+
+            app.MapWhen(context => context.Request.Path.ToString().Contains("imagegen"), subapp =>
+            {
+                subapp.UseThumbNailGen();
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

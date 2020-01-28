@@ -22,7 +22,7 @@ namespace CoreBGH.Pages.Modul05
     }
     public static class ThumbNailGenExtensions
     {
-        public static IApplicationBuilder UseThumbnailGen(IApplicationBuilder app)
+        public static IApplicationBuilder UseThumbNailGen(this IApplicationBuilder app)
         {
             return app.UseMiddleware<ThumbNailGen>();
         }
