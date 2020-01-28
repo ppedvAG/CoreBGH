@@ -1,0 +1,17 @@
+﻿@page
+@model CoreBGH.Pages.Modul05.GalleryModel
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<h1>Gallery</h1>
+
+<div class="row">
+    @foreach (var item in Model.Bilder)
+    {
+        <div class="col-12 col-md-4">
+            <img class="img-fluid" src="/images/@System.IO.Path.GetFileName(item)" />
+        </div>
+    }
+
+</div>
