@@ -13,6 +13,8 @@ namespace CoreBGH.Pages.Modul05
         public void OnGet()
         {
             HttpContext.Session.SetString("Hannes", DateTime.Now.ToLongDateString());
+            HttpContext.Response.Redirect("~/hannes.html");
+          var q= HttpContext.Request.Query["hannes"]; //?hannes=hallo
         }
     }
 }
