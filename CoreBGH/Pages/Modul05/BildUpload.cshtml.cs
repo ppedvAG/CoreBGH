@@ -18,7 +18,7 @@ namespace CoreBGH.Pages.Modul05
         }
         public void OnPost(IFormFile datei)
         {
-            var pfad = AppDomain.CurrentDomain.GetData("BildVerzeichnis") + @"\images\";
+            var pfad = AppDomain.CurrentDomain.GetData("BildVerzeichnis") + @"\images\"+datei.FileName;
             using (var fs=new FileStream(pfad,FileMode.Create))
             {
                 datei.CopyTo(fs);
