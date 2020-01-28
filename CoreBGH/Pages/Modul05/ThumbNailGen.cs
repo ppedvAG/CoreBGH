@@ -4,6 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Drawing.Drawing2D;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace CoreBGH.Pages.Modul05
 {
@@ -15,6 +19,24 @@ namespace CoreBGH.Pages.Modul05
         }
         public async Task Invoke(HttpContext context)
         {
+            var img = context.Request.Query["img"][0];
+            var pfad = AppDomain.CurrentDomain.GetData("BildVerzeichnis") + @"\images\" +img;
+            using (var sr = new FileStream(pfad, FileMode.Open))
+            {
+                using (var image=new Bitmap(sr))
+                {
+                    var resized = new Bitmap(300, 200);
+                    using (var graphics = Graphics.FromImage(resized))
+                    {
+                        graphics.DrawImage(image, 0, 0, 300, 200);
+                        var ms = new MemoryStream();
+                        resized.Save(ms, ImageFormat.Jpeg);
+                        context.Response.Body.Write(ms.ToArray());
+
+                    }
+                }
+
+            }
 
         }
 
