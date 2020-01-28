@@ -31,7 +31,7 @@ namespace CoreBGH.Pages.Modul05
                         graphics.DrawImage(image, 0, 0, 300, 200);
                         var ms = new MemoryStream();
                         resized.Save(ms, ImageFormat.Jpeg);
-                        context.Response.Body.Write(ms.ToArray());
+                        await context.Response.Body.WriteAsync(ms.ToArray());
 
                     }
                 }
