@@ -35,6 +35,7 @@ namespace CoreBGH
             services.AddResponseCaching();
             services.AddDbContext<AufgabenContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDB")));
+            services.AddSingleton<PlzService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +52,8 @@ namespace CoreBGH
                 app.UseHsts();
             }
             AppDomain.CurrentDomain.SetData("BildVerzeichnis", env.WebRootPath);
-  app.UseResponseCaching();
+            AppDomain.CurrentDomain.SetData("DatenVerzeichnis", env.ContentRootPath+@"/data/");
+            app.UseResponseCaching();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
