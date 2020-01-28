@@ -28,7 +28,7 @@
     <tbody>
 @foreach (var item in Model.Aufgaben) {
         <tr>
-            <td>
+            <td>@item.Text
                 @Html.DisplayFor(modelItem => item.Text)
             </td>
             <td>

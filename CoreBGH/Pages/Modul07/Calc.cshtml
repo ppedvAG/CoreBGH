@@ -1,0 +1,16 @@
+﻿@page
+@model CoreBGH.Pages.Modul07.CalcModel
+@{
+    ViewData["Title"] = "Calc";
+}
+
+<h1>Calc</h1>
+<h1>calc2</h1>
+<form method="post">
+    <input asp-for="Eins" /><br />
+    <input asp-for="Zwei" /><br />
+    <input type="submit" asp-page-handler="plus" value="+" />
+    <input type="submit" asp-page-handler="minus" value="-" />
+    @Model.Ergebnis
+</form>
+

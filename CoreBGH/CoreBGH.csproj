@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\Shared\EditorTemplates\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
