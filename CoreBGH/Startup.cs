@@ -36,6 +36,7 @@ namespace CoreBGH
             services.AddDbContext<AufgabenContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("MyDB")));
             services.AddSingleton<PlzService>();
+            services.AddHttpClient();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
