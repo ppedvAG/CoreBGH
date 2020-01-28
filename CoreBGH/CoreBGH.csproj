@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="data\" />
+    <Folder Include="Pages\Modul06\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
