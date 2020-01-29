@@ -20,7 +20,7 @@ namespace CoreBGH.Pages.Modul07
         {
 
             var request = new HttpRequestMessage(HttpMethod.Get,
-            $"https://jsonplaceholder.typicode.com/todos/userd={searchtext}");
+            $"https://jsonplaceholder.typicode.com/todos?userId={searchtext}");
             request.Headers.Add("Accept", "application/json");
             var client = _clientFactory.CreateClient();
             var response = await client.SendAsync(request);
