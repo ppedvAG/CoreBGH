@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using CoreBGH.Pages.Modul05;
 using Microsoft.EntityFrameworkCore;
 using CoreBGH.data;
+using CoreBGH.Pages.Modul10;
 
 namespace CoreBGH
 {
@@ -37,6 +38,7 @@ namespace CoreBGH
             options.UseSqlServer(Configuration.GetConnectionString("MyDB")));
             services.AddSingleton<PlzService>();
             services.AddHttpClient();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +74,7 @@ namespace CoreBGH
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/hubs/hannes");
             });
 
         }
