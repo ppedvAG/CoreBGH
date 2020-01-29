@@ -1,0 +1,23 @@
+﻿@page
+@model CoreBGH.Pages.modul09.APiCallModel
+@{
+    ViewData["Title"] = "APiCall";
+}
+
+<h1>APiCall</h1>
+<a href="#" onclick="load()">laden</a>
+<ul id="id1"></ul>
+
+@section Scripts {
+    <script>
+        function load() {
+            $.getJSON("https://localhost:5001/api/Aufgaben")
+                .done(function (data) {
+                    $.each(data, function (key, item) {
+                        $('<li>').text(item.text).appendTo($('#id1'));
+                    })
+                });
+
+        }
+    </script>
+}
