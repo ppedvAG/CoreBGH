@@ -1,0 +1,16 @@
+﻿@page
+@model CoreBGH.Pages.Modul08.EditToDoModel
+@{
+    ViewData["Title"] = "EditToDo";
+}
+
+<h1>EditToDo</h1>
+<form method="post">
+    <input type="hidden" asp-for="MyToDo.id" />
+    <input asp-for="MyToDo.title" />
+    <input asp-for="MyToDo.completed" />
+    <input asp-for="MyToDo.userId" />
+    <div asp-validation-summary="All"></div>
+    <input type="submit" value="save"/>
+
+</form>
