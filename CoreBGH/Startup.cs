@@ -29,7 +29,7 @@ namespace CoreBGH
         {
             
             services.AddRazorPages();
-           services.AddControllersWithViews().AddRazorRuntimeCompilation();
+           services.AddControllersWithViews().AddRazorRuntimeCompilation().AddXmlSerializerFormatters();
             services.AddSingleton<DI1>();
             services.AddSession(options => options.Cookie.IsEssential = true);
             services.AddResponseCaching();
@@ -71,6 +71,7 @@ namespace CoreBGH
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
 
         }
