@@ -1,0 +1,50 @@
+﻿@page 
+@model CoreBGH.Pages.Modul07.SearchApiModel
+@{
+    ViewData["Title"] = "SearchApi";
+}
+
+<h1>SearchApi</h1>
+
+<div class="row">
+    <div class="col">
+        <div class="input-group">
+            <form>
+                <input class="form-control border-secondary py-2"
+                       name="searchtext"
+                       type="search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="list-group" id="liste1">
+            <div class="list-group-item active">
+                To Do Items
+            </div>
+            @if (Model.TodoListe == null)
+            {
+                <div class="list-group-item">
+                    keine Daten
+                </div>
+            }
+            else
+            {
+                @foreach (var item in Model.TodoListe)
+                {
+                    <div class="list-group-item">
+                        <h3 style='@(item.completed?"text-decoration: line-through;":"")'>@item.title</h3>
+                        <span class="badge badge-secondary">@item.id</span>
+                        <span class="float-lg-right">@item.userId </span>  @item.completed
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
